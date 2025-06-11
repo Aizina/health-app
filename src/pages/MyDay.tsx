@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Input from '../components/Input';
 import { useNavigate, Link } from 'react-router-dom';
 
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwSaxuN2z1BXIKdDFhBob28u8zsHcY5W77mJSpqIQp8qjVm1lO8pwp4MezvusmSqWZ9Sw/exec';
@@ -40,17 +39,58 @@ export default function MyDay() {
     });
 
     setForm({ calories: '', steps: '', sleep: '', mood: '' });
-    setSubmitted(true); 
+    setSubmitted(true);
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <h2>Мой день</h2>
-        <Input name="calories" type="number" label="Калории" value={form.calories} onChange={handleChange} />
-        <Input name="steps" type="number" label="Шаги" value={form.steps} onChange={handleChange} />
-        <Input name="sleep" type="number" label="Сон (часы)" value={form.sleep} onChange={handleChange} />
-        <Input name="mood" label="Настроение" value={form.mood} onChange={handleChange} />
+
+        <label>
+          Калории:
+          <input
+            type="number"
+            name="calories"
+            value={form.calories}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+
+        <label>
+          Шаги:
+          <input
+            type="number"
+            name="steps"
+            value={form.steps}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+
+        <label>
+          Сон (часы):
+          <input
+            type="number"
+            name="sleep"
+            value={form.sleep}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+
+        <label>
+          Настроение:
+          <input
+            type="text"
+            name="mood"
+            value={form.mood}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+
         <button type="submit">Сохранить</button>
       </form>
 
